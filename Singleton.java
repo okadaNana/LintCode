@@ -1,6 +1,6 @@
 class Solution {
     
-    private volatile static Solution instance;
+    private volatile static Solution instance; 
     
     /**
      * @return: The same instance of this class every time
