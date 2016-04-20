@@ -15,24 +15,17 @@ public class Solution {
      * @return: The new head of reversed linked list.
      */
     public ListNode reverse(ListNode head) {
-        if (head == null) {
-            return head;
-        }
-        
-        if (head.next == null) {
-            return head;
-        }
-        
-        ListNode preNode = null;
+        ListNode prevNode = null;
         ListNode currNode = head;
         ListNode nextNode = null;
         
         while (currNode != null) {
             nextNode = currNode.next;
-            currNode.next = preNode;
-            preNode = currNode;
+            currNode.next = prevNode;
+            prevNode = currNode;
             currNode = nextNode;
         }
-        return preNode;
+        
+        return prevNode;
     }
 }
