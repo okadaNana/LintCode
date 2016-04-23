@@ -5,24 +5,16 @@ public class Solution {
      *@return: The new length after remove
      */
     public int removeElement(int[] A, int elem) {
-        if (A == null) {
-            return 0;
-        }
-        
-        if (A.length == 1) {
-            return A[0] == elem ? 0 : 1;
-        }
-        
-        List<Integer> arr = new ArrayList<>();
-        for (int i = 0; i < A.length; i++) {
-            if (A[i] != elem) {
-                arr.add(A[i]);
+        int i = 0;
+        int pointer = A.length - 1;
+        while (i <= pointer) {
+            if (A[i] == elem) {
+                A[i] = A[pointer];
+                pointer--;
+            } else {
+                i++;
             }
         }
-        
-        for (int i = 0; i < arr.size(); i++) {
-            A[i] = arr.get(i);
-        }
-        return arr.size();
+        return pointer + 1;
     }
 }
