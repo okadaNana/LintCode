@@ -13,26 +13,15 @@ public class Solution {
             return false;
         }
 
-        Map<Character, Integer> mapS = new HashMap<>();
+        int[] ascii = new int[256];
         for (int i = 0; i < s.length(); i++) {
-            Integer frequencyCount = mapS.get(s.charAt(i));
-            if (null == frequencyCount) {
-                mapS.put(s.charAt(i), 1);
-            } else {
-                mapS.put(s.charAt(i), frequencyCount + 1);
-            }
+            ascii[(int) s.charAt(i)]++;
         }
         
         for (int i = 0; i < t.length(); i++) {
-            Integer frequencyCount = mapS.get(t.charAt(i));
-            if (null == frequencyCount) {
+            ascii[(int) t.charAt(i)]--;
+            if (ascii[(int) t.charAt(i)] < 0) {
                 return false;
-            } else {
-                if (frequencyCount == 0) {
-                    return false;
-                } else {
-                    mapS.put(t.charAt(i), frequencyCount - 1);
-                }
             }
         }
         return true;
