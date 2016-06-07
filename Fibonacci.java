@@ -7,19 +7,19 @@ class Solution {
         if (n == 1) {
             return 0;
         }
-        
+
         if (n == 2) {
-            return 1;
+            return 1;            
         }
-        
-        int first = 0;
-        int second = 1;
-        int sum = 0;
+
+        int previousOne = 1;  // 前一个
+        int previousTwo = 0;  // 前两个
+        int result = 0;       // 结果值
         for (int i = 3; i <= n; i++) {
-            sum = first + second;
-            first = second;
-            second = sum;
+            result = previousOne + previousTwo;
+            previousTwo = previousOne;
+            previousOne = result;
         }
-        return sum;
+        return result;
     }
 }
